@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EcoLogos - интернет-магазин экологичных товаров.">
+    <title>EcoLogos – Онлайн-магазин экологичных товаров</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Навигация -->
+    <nav>
+        <img src="../Арайлым/EcoLogos.png" alt="Логотип" class="logo"> <!-- Логотип слева -->
+
+        <div class="nav-links">
+            <a href="#eco-products"><i class="fa-solid fa-leaf"></i></a>
+            <a href="#discounts"><i class="fa-solid fa-tags"></i></a>
+            <a href="#contact"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+
+        <i class="fa-solid fa-cart-shopping cart-icon" onclick="toggleCart()"></i> <!-- Корзина справа -->
+    </nav>
+
+    <!-- Главный блок -->
+    <section class="hero">
+        <h2>Меняй мир, начиная с себя!</h2>
+        <p>Открой для себя экологичные продукты</p>
+    </section>
+  
+
+<!-- Панель корзины -->
+<div id="cart-sidebar">
+    <div class="cart-header">
+        <h4>Корзина</h4>
+        <span class="cart-close" onclick="toggleCart()">✖</span>
+    </div>
+    <ul id="cart-list"></ul>
+    <button onclick="checkout()" class="button">Оформить заказ</button>
+</div>
+
+
+<section id="about" class="section">
+    <h3>О нас</h3>
+    <p>EcoLogos – это не просто магазин, а философия осознанного потребления. Мы верим, что каждый может внести вклад в защиту окружающей среды, заменяя повседневные вещи на экологичные аналоги.</p>
+</section>
+ 
+<main class="container">
+    <section id="eco-products" class="section">
+        <h3>Эко-продукты</h3>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://organicguide.ru/wp-content/uploads/2016/09/13895545_381202295337178_5281943818428298411_n.jpg" alt="Эко-средства">
+                <h4>Эко-средства для уборки</h4>
+                <p>Поддержите чистоту без химии! Эко-средства для безопасной уборки.</p>
+                <button onclick="addToCart('Эко-средства для уборки', 250)" class="button">Добавить в корзину </button>
+            </div>
+            <div class="card">
+                <img src="https://www.posuda-tupperware.ru/Files/butylka/eko-butylka-salatovaya-500.jpg" alt="Бутылки для воды">
+                <h4>Многоразовые бутылки</h4>
+                <p>Замените пластиковые бутылки на экологичные многоразовые решения.</p>
+                <button onclick="addToCart('Многоразовые бутылки', 150)" class="button">Добавить в корзину </button>
+            </div>
+            <div class="card">
+                <img src="https://static-basket-02.wbbasket.ru/vol25/wbkids_articles_editor/preview/c4ee315e-0fcb-4e3c-8a65-0d0cefe5c06e.jpg" alt="Бамбуковая зубная щетка">
+                <h4>Бамбуковая зубная щетка</h4>
+                <p>Экологичная альтернатива пластиковым щеткам.</p>
+                <button onclick="addToCart('Бамбуковая зубная щетка', 1200)" class="button">Добавить в корзину </button>
+            </div>
+            
+            <div class="card">
+                <img src="https://cdn1.ozone.ru/s3/multimedia-2/6464977622.jpg" alt="Мешки для стирки">
+                <h4>Мешки для стирки</h4>
+                <p>Помогают уменьшить микропластик в воде.</p>
+                <button onclick="addToCart('Мешки для стирки', 2500)" class="button">Добавить в корзину</button>
+            </div>            
+
+            <div class="card">
+                <img src="https://static.tildacdn.com/tild6636-3661-4664-a539-653763396138/ekosumka-1.jpg" alt="Экологичные сумки">
+                <h4>Эко-сумки</h4>
+                <p>Сумки, которые помогают сократить использование пластика.</p>
+                <button onclick="addToCart('Эко-сумки', 300)" class="button">Добавить в корзину</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="discounts" class="section">
+        <h3>🔥 Горящие скидки и акции 🔥</h3>
+        <p>Не упустите возможность сэкономить на эко-товарах!</p>
+    
+        <div class="discount-container">
+            <div class="discount-card">
+                <img src="https://img.freepik.com/free-vector/special-offer-sale-banner-with-leaves_1361-1335.jpg" alt="Скидка 20%">
+                <h4>Скидка 20% на всё!</h4>
+                <p>До конца месяца используйте код <strong>ECO20</strong> и получите скидку.</p>
+            </div>
+    
+            <div class="discount-card">
+                <img src="https://img.freepik.com/free-vector/fast-delivery-banner-with-scooter_1361-1332.jpg" alt="Бесплатная доставка">
+                <h4>🚛 Бесплатная доставка!</h4>
+                <p>При заказе от 2000₸ доставка за наш счёт.</p>
+            </div>
+    
+            <div class="discount-card">
+                <img src="https://img.freepik.com/free-vector/surprise-gift-box-with-red-ribbon_1017-32164.jpg" alt="Подарок при заказе">
+                <h4>🎁 Подарок при заказе</h4>
+                <p>Закажите от 5000₸ и получите эко-сюрприз!</p>
+            </div>
+        </div>
+    </section>
+    
+    
+        <section id="reviews" class="section">
+            <h3>Отзывы наших клиентов</h3>
+            <div class="review-container">
+                
+                <div class="review">
+                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Александра">
+                    <p>«Покупаю только здесь! Качество товаров отличное, рекомендую.»</p>
+                    <div class="author">Александра, Алматы</div>
+                </div>
+                <div class="review">
+                    <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Иван">
+                    <p>«Эко-средства для уборки – просто находка! Теперь вся семья использует.»</p>
+                    <div class="author">Иван, Астана</div>
+                </div>
+                <div class="review">
+                    <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Марина">
+                    <p>«Доставка быстрая, упаковка без пластика. Очень довольна покупкой!»</p>
+                    <div class="author">Марина, Шымкент</div>
+                </div>
+            </div>
+        </section>
+   
+    <section id="sale-timer" class="section">
+        <h3>🔥 Успей купить со скидкой!</h3>
+        <p>До конца акции осталось:</p>
+        <p id="timer"></p>
+    </section>
+    
+    <script>
+        function startTimer() {
+            let deadline = new Date("February 20, 2025 23:59:59").getTime();
+            let x = setInterval(function() {
+                let now = new Date().getTime();
+                let distance = deadline - now;
+    
+                let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+                document.getElementById("timer").innerHTML = days + "д " + hours + "ч " + minutes + "м " + seconds + "с ";
+    
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("timer").innerHTML = "Акция завершена!";
+                }
+            }, 1000);
+        }
+        startTimer();
+    </script>
+    
+    <section id="eco-calculator" class="section">
+    <h3>Сколько пластика вы можете сэкономить?</h3>
+    <p>Введите количество одноразовых бутылок, которые вы используете в месяц:</p>
+    <input type="number" id="bottleCount" value="0">
+    <button onclick="calculateEco()">Рассчитать</button>
+    <p id="eco-result"></p>
+</section>
+
+    <section id="contact" class="section">
+        <h3>Свяжитесь с нами</h3>
+        <p>Email: contact@ecologos.eco</p>
+        <p>Телефон: +7 (123) 456-7890</p>
+    </section>
+</main>
+
+<!-- Скрытая боковая панель (Корзина) -->
+<div id="cart-sidebar">
+    <div class="cart-header">
+        <h4>Корзина</h4>
+        <span class="cart-close" onclick="toggleCart()">✖</span>
+    </div>
+    <ul id="cart-list">
+        <!-- Список товаров в корзине -->
+    </ul>
+    <button onclick="checkout()" class="button">Оформить заказ</button>
+</div>
+
+<script>
+    function calculateEco() {
+        let count = document.getElementById('bottleCount').value;
+        let savedPlastic = count * 20; // 20г пластика на бутылку
+        document.getElementById('eco-result').textContent = `Вы сэкономите ${savedPlastic} граммов пластика в год!`;
+    }
+</script>
+    
+<footer>
+    <p>&copy; 2025 EcoLogos – Все права защищены</p>
+</footer>
+
+<script>
+    // Массив для корзины
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Функция добавления товара в корзину
+    function addToCart(product, price) {
+        cart.push({ product: product, price: price });
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCart();
+    }
+
+    // Функция отображения корзины
+    function updateCart() {
+        const cartList = document.getElementById('cart-list');
+        cartList.innerHTML = '';  // Очищаем текущий список
+
+        // Если корзина пуста
+        if (cart.length === 0) {
+            cartList.innerHTML = '<li>Корзина пуста</li>';
+        } else {
+            // Заполняем корзину товарами
+            cart.forEach((item, index) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item.product} - ${item.price} (₸)`;
+                cartList.appendChild(listItem);
+            });
+        }
+    }
+
+    // Функция оформления заказа
+    function checkout() {
+        if (cart.length > 0) {
+            alert('Ваш заказ оформлен. Спасибо за покупку!');
+            cart = [];
+            localStorage.removeItem('cart');
+            updateCart();
+        } else {
+            alert('Ваша корзина пуста.');
+        }
+    }
+
+    // Функция переключения отображения корзины
+    function toggleCart() {
+        document.getElementById('cart-sidebar').classList.toggle('open');
+    }
+
+    // Инициализация корзины
+    updateCart();
+</script>
+
+
+</body>
+</html>
